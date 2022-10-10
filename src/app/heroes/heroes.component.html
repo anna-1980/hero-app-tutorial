@@ -1,12 +1,29 @@
-<p>heroes works!</p>
-<div
-class="hero-plate"
+<h1 class="highlight center">List of Heroes</h1>
+<button
+
+class="hero-plate "
+[class.selected]="oneOfMenyHeroes === chosenHero" type="button"
 *ngFor="let oneOfMenyHeroes of heroes"
+(click)="onSelectHero(oneOfMenyHeroes)"
 >
 <p>{{oneOfMenyHeroes.id}}</p> 
 <h2>{{oneOfMenyHeroes.name}}</h2>
-<h3>&nbsp;({{oneOfMenyHeroes.power}})</h3>
-</div>
+<!-- <h3>&nbsp;({{oneOfMenyHeroes.power}})</h3> -->
+</button>
+<!-- <div 
+*ngIf="chosenHero">
+    <h2>{{chosenHero.name | uppercase}}
+    </h2>
+    <p>details</p>
+    <div>id: {{chosenHero.id}}</div>
+    <div class="hero-plate"
+    >
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="chosenHero.name" placeholder="name">
+    </div>
+  </div> -->
+<hr>
+<app-hero-detail [hero]="chosenHero"></app-hero-detail>
 
 <!-- ------------------------- -->
 

@@ -1,4 +1,4 @@
-import { Hero } from "./hero";
+import { Hero } from "./hero.model";
 
 //remember to add the TYPE to Hero !
 export const HeroesList: Hero[] = [

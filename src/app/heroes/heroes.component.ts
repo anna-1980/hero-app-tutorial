@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from './hero';
+import { Hero } from './hero.model'
 import { HeroesList } from './listOfHeroes';
 
 @Component({
@@ -8,14 +8,20 @@ import { HeroesList } from './listOfHeroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-//adding properties
-heroes: Hero[] = HeroesList
+// chosenHero:Hero;
+heroes = HeroesList;
+chosenHero?: Hero;
 
   constructor() { }
 
   ngOnInit(): void {
     console.log('on Init oif Heroes');
     console.log(this.heroes  )
+  }
+
+  onSelectHero(selectHero: Hero){
+    this.chosenHero = selectHero
+    console.log(selectHero.name)
   }
 
 }
