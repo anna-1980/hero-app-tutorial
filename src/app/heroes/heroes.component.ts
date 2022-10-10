@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero.model'
-import { HeroesList } from './listOfHeroes';
+// import { HeroesList } from './listOfHeroes';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -9,20 +10,30 @@ import { HeroesList } from './listOfHeroes';
 })
 export class HeroesComponent implements OnInit {
 // chosenHero:Hero;
-heroes = HeroesList;
+// heroes = HeroesList; //redundant after adding service
+heroes: Hero[] = [];
 chosenHero?: Hero;
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     console.log('on Init oif Heroes');
     console.log(this.heroes  )
+
+    //from the service
+    this.heroes = this.heroService.getHeroes();
   }
+
+  // getHeroes(): void {
+  //   this.heroes = this.heroService.getHeroes();
+  // }
 
   onSelectHero(selectHero: Hero){
     this.chosenHero = selectHero
     console.log(selectHero.name)
   }
+//adding heroes List from services
+ 
 
 }
 
