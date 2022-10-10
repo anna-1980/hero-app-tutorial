@@ -40,9 +40,14 @@
     background-color: #e6e6e6;
   }
 
+  .hidden{
+    display: none;
+  }
   .selected{
+    height: inherit;
     color: #e6e6e6;
     background-color: #682626;
+    padding: 0;
   }
   
   .heroes a:active {
