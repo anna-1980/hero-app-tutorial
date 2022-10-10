@@ -1,15 +1,22 @@
 <h1 class="highlight center">List of Heroes</h1>
-<button
 
-class="hero-plate "
-[class.selected]="oneOfMenyHeroes === chosenHero" type="button"
-*ngFor="let oneOfMenyHeroes of heroes"
-(click)="onSelectHero(oneOfMenyHeroes)"
->
-<p>{{oneOfMenyHeroes.id}}</p> 
-<h2>{{oneOfMenyHeroes.name}}</h2>
-<!-- <h3>&nbsp;({{oneOfMenyHeroes.power}})</h3> -->
-</button>
+<app-hero-detail [hero]="chosenHero"></app-hero-detail>
+<div class="heroes">
+    <div
+    class="hero-plate"
+    [class.selected]="oneOfMenyHeroes === chosenHero" 
+    *ngFor="let oneOfMenyHeroes of heroes"
+    (click)="onSelectHero(oneOfMenyHeroes)"
+    >
+        <a 
+        href="#">
+            <span class="badge">{{oneOfMenyHeroes.id}}</span> 
+            {{oneOfMenyHeroes.name}}</a>
+        <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button>
+    <!-- <h3>&nbsp;({{oneOfMenyHeroes.power}})</h3> -->
+
+    </div>
+</div>
 <!-- <div 
 *ngIf="chosenHero">
     <h2>{{chosenHero.name | uppercase}}
@@ -23,7 +30,7 @@ class="hero-plate "
     </div>
   </div> -->
 <hr>
-<app-hero-detail [hero]="chosenHero"></app-hero-detail>
+
 
 <!-- ------------------------- -->
 

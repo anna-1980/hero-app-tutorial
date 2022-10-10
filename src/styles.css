@@ -16,7 +16,7 @@ h2{
 
 .center{
     width: fit-content;
-    background-color: gold;
+    /* background-color: gold; */
     display: block;
     margin: 0 auto;
 }
