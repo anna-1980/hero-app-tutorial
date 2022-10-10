@@ -8,8 +8,7 @@
     *ngFor="let oneOfMenyHeroes of heroes"
     (click)="onSelectHero(oneOfMenyHeroes)"
     >
-        <a 
-        href="#">
+        <a routerLink="/detail/{{oneOfMenyHeroes.id}}">
             <span class="badge">{{oneOfMenyHeroes.id}}</span> 
             {{oneOfMenyHeroes.name}}</a>
         <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button>
