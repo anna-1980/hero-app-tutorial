@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* general styles*/
+p{
+    padding: 0.5rem;
+}
+
+.highlight{
+    color: dodgerblue;
+    font-weight: 800;
+}
+.hero-plate{
+    display: flex;
+    align-items: center;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 1px 1px 10px rgb(227, 227, 227);
+}
+

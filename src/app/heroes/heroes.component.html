@@ -1,0 +1,26 @@
+<p>heroes works!</p>
+<div
+class="hero-plate"
+*ngFor="let oneOfMenyHeroes of heroes"
+>
+<p>{{oneOfMenyHeroes.id}}</p> 
+<h2>{{oneOfMenyHeroes.name}}</h2>
+<h3>&nbsp;({{oneOfMenyHeroes.power}})</h3>
+</div>
+
+<!-- ------------------------- -->
+
+<!-- <div>
+    <label>name</label>
+    <input 
+    [(ngModel)]="heroes.name"
+    type="text" placeholder="name">
+</div>
+<h1>{{heroes.name | uppercase}}</h1>
+<div>
+    <span>id: {{heroes.id}}</span>
+</div>
+<div>
+    <span>name: {{heroes.name}}</span>
+</div> -->
+<router-outlet></router-outlet>
