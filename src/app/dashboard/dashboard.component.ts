@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  displayHeroDetails?: Hero;
+  heroName?: Hero;
  
 
   constructor(
@@ -32,16 +32,15 @@ export class DashboardComponent implements OnInit {
   }
 
   getOneHeroDetails(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(`from dashboard: ${this.route.snapshot}`);
+    const heroName =  this.route.snapshot.paramMap.get('name');
+    // console.log(`from dashboard: ${this.route.snapshot}`);
  
-    this.heroService.getHero(id)
+    this.heroService.getHerobyName(heroName)
       .subscribe(
-        (recievedHero) => {this.displayHeroDetails = recievedHero;
-          console.log(recievedHero)
+        (recievedHero) => {this.heroName = recievedHero;
+          // console.log(recievedHero)
       })
-    console.log(this.displayHeroDetails);
-    console.log(`3 Subscribing to Params ${this.route.snapshot.params}`)
+    // console.log(`from dashboard retrieved from paramMap: ${this.heroName}`);
   }
   
 }
