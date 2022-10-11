@@ -19,4 +19,15 @@ export class HeroService {
     
     return asynchHeroesList;
   }
+
+  getHero(id: number, heroName?: string | null): Observable<Hero> {
+    // const asynchHeroesList = of(HeroesList);
+    const syncHero = HeroesList.find(h => h.id === id)!;
+    const singleHeroName = HeroesList.find(n => n.name === heroName)!;
+    this.messageService.add(` HeroService: fetched Single Hero ${id} "${heroName}" ${new Date().toString().slice(0, 20)}` );
+    
+    return of(syncHero);
+  }
+
 }
+
