@@ -47,4 +47,5 @@ h2 {
   
   a:hover {
     background-color: #000;
+    cursor: pointer;
   }

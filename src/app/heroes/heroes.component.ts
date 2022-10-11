@@ -36,7 +36,7 @@ export class HeroesComponent implements OnInit {
 //------------the asynch HTTP method Observable------------//
       this.heroService.getHeroes()
         .subscribe( (stillHeroes) => this.heroes = stillHeroes)
-      
+      console.log(this.route.snapshot )
     //-------extracting ID from the url------//
   }
 
