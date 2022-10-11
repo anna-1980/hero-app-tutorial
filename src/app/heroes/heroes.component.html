@@ -2,18 +2,17 @@
 
 <!-- <app-hero-detail></app-hero-detail> -->
 <div class="heroes">
-    <div
-      *ngFor="let oneOfMenyHeroes of heroes"
-    >
+    <div *ngFor="let oneOfMenyHeroes of heroes">
             <a routerLink="/details/{{oneOfMenyHeroes.id}}/{{oneOfMenyHeroes.name}}">
                 <span class="badge">{{oneOfMenyHeroes.id}}</span> 
                 {{oneOfMenyHeroes.name}}</a>
- 
+            
         <!-- <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button> -->
     <!-- <h3>&nbsp;({{oneOfMenyHeroes.power}})</h3> -->
 
     </div>
 </div>
+ 
 <!-- <div 
 *ngIf="chosenHero">
     <h2>{{chosenHero.name | uppercase}}

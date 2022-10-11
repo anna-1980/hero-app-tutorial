@@ -1,11 +1,20 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
-    <a *ngFor="let hero of heroes"
-    routerLink="/details/{{hero.id}}/{{hero.name}}">
+    <a 
+    (click)="getOneHeroDetails()"
+    *ngFor="let hero of heroes"
+    routerLink="/dashboard/{{hero.name}}"
+    >
     {{hero.name}}
   </a>
-</div> 
+</div>
+<h1 *ngIf="displayHeroDetails"
+ 
+>something</h1> 
+<router-outlet></router-outlet>
 
+<!-- router Link :  -->
+<!-- routerLink="/details/{{hero.id}}/{{hero.name}}" -->
 
 <!-- <h2>Top Heroes</h2>
 <div class="heroes-menu">

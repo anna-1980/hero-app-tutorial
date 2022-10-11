@@ -22,16 +22,14 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.route.snapshot.paramMap.get('name'));
+    console.log(this.route.snapshot );
     const heroNameforMsgService =  this.route.snapshot.paramMap.get('name');
     // const currentHeroName = heroNameforMsg ? heroNameforMsg.replace(/ /g, ""): ''
     // console.log(currentHeroName);
     this.heroService.getHero(id, heroNameforMsgService)
       .subscribe(
-        
         (recievedHero) => {this.heroDetails = recievedHero;
-      }
-      )
+      })
     console.log(this.heroDetails);
   }
 
