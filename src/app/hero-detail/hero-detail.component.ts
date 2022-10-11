@@ -37,11 +37,15 @@ export class HeroDetailComponent implements OnInit {
       this.route.params
       .subscribe(
       (params: Params) => {
-        let parameters;
-        console.log(`Subscribing to Params ${params['id']}`)
-        this.parameters = params;
+        console.log(`Subscribing to Params ${params['name']}`)
+        this.parameters = params['name'];
         console.log(`2 Subscribing to Params ${this.route.snapshot.params}`)
         
+      })
+
+      this.heroService.getHerobyName( this.parameters )
+      .subscribe(
+        (recievedHero) => {this.heroDetails = recievedHero;
       })
   }
 

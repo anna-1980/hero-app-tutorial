@@ -24,5 +24,11 @@ export class HeroService {
     
     return of(syncHero); //as observable
   }
+
+  getHerobyName(heroName?: string | null): Observable<Hero> {
+    // const syncHeroname = HeroesList.find(n => n.name === n)!;
+    const singleHeroName = HeroesList.find(n => n.name === heroName)!;
+    return of(singleHeroName); //as observable
+  }
 }
 

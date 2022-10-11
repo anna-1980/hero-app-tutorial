@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
   getOneHeroDetails(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(`from dashboard: ${this.route.snapshot}`);
+ 
     this.heroService.getHero(id)
       .subscribe(
         (recievedHero) => {this.displayHeroDetails = recievedHero;
