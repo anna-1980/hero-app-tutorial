@@ -23,10 +23,10 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.route.snapshot.paramMap.get('name'));
-    const heroName =  this.route.snapshot.paramMap.get('name');
-    const currentHeroName = heroName ? heroName.replace(/ /g, ""): ''
-    console.log(currentHeroName);
-    this.heroService.getHero(id, heroName)
+    const heroNameforMsgService =  this.route.snapshot.paramMap.get('name');
+    // const currentHeroName = heroNameforMsg ? heroNameforMsg.replace(/ /g, ""): ''
+    // console.log(currentHeroName);
+    this.heroService.getHero(id, heroNameforMsgService)
       .subscribe(
         
         (recievedHero) => {this.heroDetails = recievedHero;
