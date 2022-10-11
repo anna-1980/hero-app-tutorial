@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   displayHeroDetails?: Hero;
-  parameters?: any;
+ 
 
   constructor(
     private location: Location,
@@ -23,17 +23,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHeroes();
-
-    this.route.params
-      .subscribe(
-      (params: Params) => {
-        let parameters;
-        console.log(`Subscribing to Params ${params['id']}`)
-        this.parameters = params;
-        console.log(`2 Subscribing to Params ${this.route.snapshot.params}`)
-        
-      }
-    )
 
   }
 

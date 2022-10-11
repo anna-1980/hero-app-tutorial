@@ -1,10 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HeroService } from '../hero.service';
 import { Hero } from '../heroes/hero.model'
-
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,13 +15,15 @@ export class HeroDetailComponent implements OnInit {
   // Observable is a generic Type and you have to define it here
   // hero?: Observable<Hero>;
   heroDetails?: Hero;
+  parameters?: any;
+
   constructor(     private location: Location, 
                    private route: ActivatedRoute,
                    private heroService: HeroService) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.route.snapshot );
+    console.log(`name from this.route.snapshot.paramMap = ${this.route.snapshot.paramMap.get('name') }`);
     const heroNameforMsgService =  this.route.snapshot.paramMap.get('name');
     // const currentHeroName = heroNameforMsg ? heroNameforMsg.replace(/ /g, ""): ''
     // console.log(currentHeroName);
@@ -31,12 +32,22 @@ export class HeroDetailComponent implements OnInit {
         (recievedHero) => {this.heroDetails = recievedHero;
       })
     console.log(this.heroDetails);
+    console.log(`from hero details ${this.route.snapshot.paramMap.get('id')}`)
+
+      this.route.params
+      .subscribe(
+      (params: Params) => {
+        let parameters;
+        console.log(`Subscribing to Params ${params['id']}`)
+        this.parameters = params;
+        console.log(`2 Subscribing to Params ${this.route.snapshot.params}`)
+        
+      })
   }
 
   goBack(): void {
     this.location.back();
   }
-
 }
  
    
