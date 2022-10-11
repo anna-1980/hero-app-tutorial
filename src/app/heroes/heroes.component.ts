@@ -2,47 +2,58 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero.model';
 // import { HeroesList } from './listOfHeroes';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+// import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
+  
 })
 export class HeroesComponent implements OnInit {
   // chosenHero:Hero;
   // heroes = HeroesList; //redundant after adding service
   heroes: Hero[] = [];
-  chosenHero?: Hero;
+  // chosenHero?: Hero;
+  /// alternative  chosenHero: Hero | undefined;
 
-  constructor(private heroService: HeroService, 
-    private messageService: MessageService) {}
+  constructor(
+      private heroService: HeroService, 
+      private location: Location, 
+      private route: ActivatedRoute,
+    // private messageService: MessageService
+    ) {}
 
   ngOnInit(): void {
-    console.log('on Init oif Heroes');
+    console.log('on Init of Heroes');
     console.log(this.heroes);
 
     //from the service
+
     // this.heroes = this.heroService.getHeroes()
 //------------the asynch HTTP method Observable------------//
       this.heroService.getHeroes()
         .subscribe( (stillHeroes) => this.heroes = stillHeroes)
-    
-    // This approach won't work in a real application that uses asynchronous calls.
-    // It works now because your service synchronously returns mock heroes.
+      
+    //-------extracting ID from the url------//
   }
 
+ 
   // getHeroes(): void {
   //   this.heroes = this.heroService.getHeroes();
   // }
 
-  onSelectHero(selectHero: Hero) {
+//-----xxxxx-----after adding router this code was redundant ------xxxx-------//
+  // onSelectHero(selectHero: Hero) {
   
-    this.chosenHero = selectHero;
-    console.log(selectHero.name);
-    this.messageService.add(`HeroesComponent: Selected hero name=${selectHero.name}  -- on ${ new Date().toString().slice(0, 25)}`);
-  }
+  //   this.chosenHero = selectHero;
+  //   console.log(selectHero.name);
+  //   this.messageService.add(`HeroesComponent: Selected hero name=${selectHero.name}  -- on ${ new Date().toString().slice(0, 25)}`);
+  // }
   //adding heroes List from services
+//-----xxxxx-----after adding router this code was redundant ------xxxx-------//
 }
 
 // heroes: Hero = [

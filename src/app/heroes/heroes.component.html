@@ -1,17 +1,15 @@
-<h1 class="highlight center">List of Heroes</h1>
+<h1 class="highlight ">List of Heroes</h1>
 
-<app-hero-detail [hero]="chosenHero"></app-hero-detail>
+<!-- <app-hero-detail></app-hero-detail> -->
 <div class="heroes">
     <div
-    class="hero-plate"
-    [class.selected]="oneOfMenyHeroes === chosenHero" 
-    *ngFor="let oneOfMenyHeroes of heroes"
-    (click)="onSelectHero(oneOfMenyHeroes)"
+      *ngFor="let oneOfMenyHeroes of heroes"
     >
-        <a routerLink="/detail/{{oneOfMenyHeroes.id}}">
-            <span class="badge">{{oneOfMenyHeroes.id}}</span> 
-            {{oneOfMenyHeroes.name}}</a>
-        <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button>
+            <a routerLink="/details/{{oneOfMenyHeroes.id}}/{{oneOfMenyHeroes.name}}">
+                <span class="badge">{{oneOfMenyHeroes.id}}</span> 
+                {{oneOfMenyHeroes.name}}</a>
+ 
+        <!-- <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button> -->
     <!-- <h3>&nbsp;({{oneOfMenyHeroes.power}})</h3> -->
 
     </div>
@@ -46,4 +44,20 @@
 <div>
     <span>name: {{heroes.name}}</span>
 </div> -->
-<router-outlet></router-outlet>
+
+
+<!-- ----------------------------- -->
+<!-- before the router: -->
+<!-- <div
+class="hero-plate"
+[class.selected]="oneOfMenyHeroes === chosenHero" 
+*ngFor="let oneOfMenyHeroes of heroes"
+(click)="onSelectHero(oneOfMenyHeroes)"
+>
+        <a routerLink="/details/{{oneOfMenyHeroes.id}}">
+            <span class="badge">{{oneOfMenyHeroes.id}}</span> 
+            {{oneOfMenyHeroes.name}}</a>
+
+    <button  [class.delete]="oneOfMenyHeroes !== chosenHero"   type="button" title="delete hero">X</button>
+ 
+</div> -->
