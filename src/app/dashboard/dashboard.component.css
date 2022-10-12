@@ -49,3 +49,13 @@ h2 {
     background-color: #000;
     cursor: pointer;
   }
+
+  .red{
+    background-color: red;
+  }
+  .blue{
+    background-color: blue;
+  }
+  .hidden{
+    display: none;
+  }

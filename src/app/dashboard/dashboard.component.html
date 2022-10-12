@@ -1,17 +1,25 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
     <a 
-    (click)="getOneHeroDetails()"
+    #checkValue
+    (click)="getOneHeroDetails(checkValue)"
+    (click)="sameCardCheck === !sameCardCheck"
+    [ngClass]="sameCardCheck === true ? 'red' : 'blue'"
     *ngFor="let hero of heroes"
     routerLink="/dashboard/{{hero.name}}"
     >
     {{hero.name}}
   </a>
 </div>
-<h1 *ngIf="heroName"
+<h1 [ngClass]="sameCardCheck === false? 'blue' : 'red'"
  
->something</h1> 
-<router-outlet></router-outlet>
+> the same hero card was clicked sameCardCheck IS TRUE</h1> 
+<div  #toggleDiv [ngClass]="sameCardCheck === false? 'red' : 'hidden'"
+>
+  <router-outlet ></router-outlet>
+</div>
+
+<!-- [ngClass]="sameCardCheck === true ? 'hidden' : 'blue'" -->
 
 <!-- router Link :  -->
 <!-- routerLink="/details/{{hero.id}}/{{hero.name}}" -->
