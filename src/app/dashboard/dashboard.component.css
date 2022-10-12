@@ -59,6 +59,10 @@ h2 {
   .yellow{
     background-color: yellow;
   }
+
+  .pink{
+    background-color: pink;
+  }
   .hidden{
     display: none;
     /* opacity: 0.3; */

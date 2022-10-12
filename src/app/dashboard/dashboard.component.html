@@ -3,7 +3,7 @@
     <a 
     #checkValue
     (click)="getOneHeroDetails(checkValue)"
-    (click)="toggleDiv.className !== 'hidden' && sameCardCheck === true ? toggleDiv.classList.toggle('hidden') : toggleDiv.classList.add('transparent')"
+    (click)="toggleDetailsCard(toggleDiv)"
     *ngFor="let hero of heroes"
     routerLink="/dashboard/{{hero.name}}"
     >
@@ -13,7 +13,9 @@
 <h1 [ngClass]="sameCardCheck === false? 'blue' : 'red'"
  
 > the same hero card was clicked sameCardCheck IS TRUE</h1> 
-<div  #toggleDiv [ngClass]="sameCardCheck === false? '' : 'hidden'"
+<div  #toggleDiv 
+[class]="classToggle"
+ 
 >
   <router-outlet ></router-outlet>
 </div>
@@ -28,4 +30,20 @@
   <a *ngFor="let hero of heroes">
     {{hero.name}}
   </a>
+</div> -->
+
+<!-- toggle hero details card WORKING:  -->
+<!-- <a 
+#checkValue
+(click)="getOneHeroDetails(checkValue)"
+(click)="toggleDiv.className !== 'hidden' && sameCardCheck === true ? toggleDiv.classList.toggle('hidden') : toggleDiv.classList.add('transparent')"
+*ngFor="let hero of heroes"
+routerLink="/dashboard/{{hero.name}}"
+>
+{{hero.name}}
+</a> -->
+<!-- <div  #toggleDiv 
+[ngClass]="sameCardCheck === false? '' : 'hidden'"
+>
+  <router-outlet ></router-outlet>
 </div> -->

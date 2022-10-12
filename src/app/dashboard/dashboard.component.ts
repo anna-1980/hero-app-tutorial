@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit, DoCheck {
   sameCardCheck?: boolean = false;
   splitUrl?: string;
 
+  classToggle = 'pink';
+
   constructor(
     private location: Location,
     private route: ActivatedRoute,
@@ -47,6 +49,13 @@ export class DashboardComponent implements OnInit, DoCheck {
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes.slice(0, 3));
+  }
+
+  toggleDetailsCard(toggleDiv: HTMLDivElement){
+    console.log(toggleDiv)
+    toggleDiv.className !== 'hidden' && this.sameCardCheck === true ? 
+    toggleDiv.classList.toggle('hidden') : 
+    toggleDiv.classList.add('transparent')
   }
 
   getOneHeroDetails(checkValue: HTMLAnchorElement){
