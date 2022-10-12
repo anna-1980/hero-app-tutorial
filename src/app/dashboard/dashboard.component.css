@@ -56,6 +56,10 @@ h2 {
   .blue{
     background-color: blue;
   }
+  .yellow{
+    background-color: yellow;
+  }
   .hidden{
     display: none;
+    /* opacity: 0.3; */
   }

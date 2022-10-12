@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit, DoCheck {
 
   heroes: Hero[] = [];
   heroName?: Hero;
-  toggleHeroCard?:boolean= false;
+  // toggleHeroCard?:boolean= false;
   whichDetailCard?: string;
   sameCardCheck?: boolean = false;
   splitUrl?: string;
@@ -36,9 +36,9 @@ export class DashboardComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void{
-    // console.log(`Dashboard DoCheck router ${this.router.url}`);
-    // console.log(` Dashboard  paramMap DoCheck: ${this.route.snapshot.paramMap.get('name')}`)
-    // console.log(`Dashboard Location ---DoCheck---  ${this.location.path()}`)
+    console.log(`Dashboard DoCheck router ${this.router.url}`);
+    console.log(` Dashboard  paramMap DoCheck: ${this.route.snapshot.paramMap.get('name')}`)
+    console.log(`Dashboard Location ---DoCheck---  ${this.location.path()}`)
     this.whichDetailCard = this.location.path().toString().split('/').at(-1)
     console.log(`Dashboard whichDetailCard >>DoChange<<  ${this.whichDetailCard}`)
     console.log(`this.splitUrl === this.whichDetailCard ${ this.splitUrl === this.whichDetailCard}`)

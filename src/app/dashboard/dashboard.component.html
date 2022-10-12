@@ -3,8 +3,7 @@
     <a 
     #checkValue
     (click)="getOneHeroDetails(checkValue)"
-    (click)="sameCardCheck === !sameCardCheck"
-    [ngClass]="sameCardCheck === true ? 'red' : 'blue'"
+    (click)="toggleDiv.className !== 'hidden' && sameCardCheck === true ? toggleDiv.classList.toggle('hidden') : toggleDiv.classList.add('transparent')"
     *ngFor="let hero of heroes"
     routerLink="/dashboard/{{hero.name}}"
     >
@@ -14,7 +13,7 @@
 <h1 [ngClass]="sameCardCheck === false? 'blue' : 'red'"
  
 > the same hero card was clicked sameCardCheck IS TRUE</h1> 
-<div  #toggleDiv [ngClass]="sameCardCheck === false? 'red' : 'hidden'"
+<div  #toggleDiv [ngClass]="sameCardCheck === false? '' : 'hidden'"
 >
   <router-outlet ></router-outlet>
 </div>
