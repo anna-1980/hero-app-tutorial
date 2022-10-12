@@ -7,11 +7,9 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit, DoCheck {
-  // @ViewChild('ServerContentInput', {static: true}) ServerContentInput: ElementRef;
-
   heroes: Hero[] = [];
   heroName?: Hero;
   // toggleHeroCard?:boolean= false;
@@ -19,75 +17,63 @@ export class DashboardComponent implements OnInit, DoCheck {
   sameCardCheck?: boolean = false;
   splitUrl?: string;
 
-  classToggle = 'pink';
+  classToggle = '';
 
   constructor(
     private location: Location,
     private route: ActivatedRoute,
     private heroService: HeroService,
     private router: Router
-    ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getHeroes();
-
-    // this.getOneHeroDetails()
-
     console.log(`Dashboard router ${this.router.url}`);
-  
   }
 
-  ngDoCheck(): void{
+  ngDoCheck(): void {
     console.log(`Dashboard DoCheck router ${this.router.url}`);
-    console.log(` Dashboard  paramMap DoCheck: ${this.route.snapshot.paramMap.get('name')}`)
-    console.log(`Dashboard Location ---DoCheck---  ${this.location.path()}`)
-    this.whichDetailCard = this.location.path().toString().split('/').at(-1)
-    console.log(`Dashboard whichDetailCard >>DoChange<<  ${this.whichDetailCard}`)
-    console.log(`this.splitUrl === this.whichDetailCard ${ this.splitUrl === this.whichDetailCard}`)
+    console.log(
+      ` Dashboard  paramMap DoCheck: ${this.route.snapshot.paramMap.get(
+        'name'
+      )}`
+    );
+    console.log(`Dashboard Location ---DoCheck---  ${this.location.path()}`);
+    this.whichDetailCard = this.location.path().toString().split('/').at(-1);
+    console.log(
+      `Dashboard whichDetailCard >>DoChange<<  ${this.whichDetailCard}`
+    );
+    console.log(
+      `this.splitUrl === this.whichDetailCard ${
+        this.splitUrl === this.whichDetailCard
+      }`
+    );
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(0, 3));
+    this.heroService
+      .getHeroes()
+      .subscribe((heroes) => (this.heroes = heroes.slice(0, 3)));
   }
 
-  toggleDetailsCard(toggleDiv: HTMLDivElement){
-    console.log(toggleDiv)
-    toggleDiv.className !== 'hidden' && this.sameCardCheck === true ? 
-    toggleDiv.classList.toggle('hidden') : 
-    toggleDiv.classList.add('transparent')
+  toggleDetailsCard(toggleDiv: HTMLDivElement) {
+    console.log(toggleDiv);
+    if (toggleDiv.classList.contains('hidden') === false && this.sameCardCheck === true) {
+      toggleDiv.classList.add('hidden');
+    } else if (
+      toggleDiv.classList.contains('hidden') === true && this.sameCardCheck === true) {
+      toggleDiv.classList.remove('hidden');
+    }else{
+      toggleDiv.classList.remove('hidden');
+    }
   }
 
-  getOneHeroDetails(checkValue: HTMLAnchorElement){
-    const heroName =  this.route.snapshot.paramMap.get('name');
-    // console.log(`from dashboard heroName: ${this.heroName}`);
-    // this.toggleHeroCard = !this.toggleHeroCard
-    // console.log(`Dashboard >>CLICK<< router ${this.router.url}`);
-    // console.log(`>>>>CLICK<<<< ${checkValue}`);
+  getOneHeroDetails(checkValue: HTMLAnchorElement) {
+    const heroName = this.route.snapshot.paramMap.get('name');
+
     this.splitUrl = checkValue.toString().split('/').at(-1);
     console.log(`>>>>CLICK SLICED<<<< ${this.splitUrl}`);
-    console.log(`>>>>>>${this.splitUrl === this.whichDetailCard}`)
-    this.sameCardCheck = this.splitUrl === this.whichDetailCard
-    
-    // this.route.params.subscribe((params: Params) => {
-      // console.log(`Subscribing to Params - get Name ${params['name']}`);
-      // this.heroName = params['name'];
-      // console.log(`Dashboard logging params ${params['name']}`);
-      // console.log(`Dashboard logging params ${Object.values(params)}`);
-      
-    // })
-  
-    // this.heroService.getHerobyName(heroName)
-    //   .subscribe(
-        // (recievedHero) => {this.heroName = recievedHero;
-          // console.log(recievedHero)
-          // console.log(`toggle card ${this.toggleHeroCard}`)
-          // console.log(`DashboardheroName ${recievedHero}`)
-          // console.log(`event${event}`)
-          // console.log(`route of Dashboard : ${this.route.snapshot.paramMap.get('name')}`)
-          
-      // })
-    // console.log(`from dashboard retrieved from paramMap: ${this.heroName}`);
+    console.log(`>>>>>>${this.splitUrl === this.whichDetailCard}`);
+    this.sameCardCheck = this.splitUrl === this.whichDetailCard;
   }
-  
 }
