@@ -1,4 +1,10 @@
-import { Component, DoCheck, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Hero } from '../heroes/hero.model';
 import { HeroService } from '../hero.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -58,14 +64,22 @@ export class DashboardComponent implements OnInit, DoCheck {
 
   toggleDetailsCard(toggleDiv: HTMLDivElement) {
     console.log(toggleDiv);
-    if (toggleDiv.classList.contains('hidden') === false && this.sameCardCheck === true) {
-      toggleDiv.classList.add('hidden');
-    } else if (
-      toggleDiv.classList.contains('hidden') === true && this.sameCardCheck === true) {
-      toggleDiv.classList.remove('hidden');
-    }else{
+    if (
+      toggleDiv.classList.contains('hidden') === false &&
+      this.sameCardCheck === true
+    ) {
+      toggleDiv.classList.toggle('hidden');
+    } else {
       toggleDiv.classList.remove('hidden');
     }
+
+    // toggleDiv.className !== 'hidden' && sameCardCheck === true ? toggleDiv.classList.toggle('hidden') : toggleDiv.classList.add('transparent')
+    // } else if (
+    //   toggleDiv.classList.contains('hidden') === true && this.sameCardCheck === true) {
+    //   toggleDiv.classList.remove('hidden');
+    // }else{
+    //   toggleDiv.classList.remove('hidden');
+    // }
   }
 
   getOneHeroDetails(checkValue: HTMLAnchorElement) {
