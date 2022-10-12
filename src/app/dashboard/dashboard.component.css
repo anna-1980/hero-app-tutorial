@@ -51,11 +51,19 @@ h2 {
   }
 
   .red{
-    background-color: red;
+    background-color: rgb(250, 145, 145);
   }
   .blue{
-    background-color: blue;
+    background-color: rgb(146, 146, 247);
+  }
+  .yellow{
+    background-color: yellow;
+  }
+
+  .pink{
+    background-color: pink;
   }
   .hidden{
     display: none;
+    /* opacity: 0.3; */
   }
