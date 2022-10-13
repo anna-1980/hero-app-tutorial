@@ -1,6 +1,7 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
     <a 
+    (isActiveChange)="toggleDiv.className !== 'yellow'"
     #checkValue
     (click)="getOneHeroDetails(checkValue)"
     (click)="toggleDetailsCard(toggleDiv)"
@@ -10,10 +11,11 @@
     {{hero.name}}
   </a>
 </div>
-<h1 [ngClass]="sameCardCheck === false? 'blue' : 'red'"
+<!-- <h1 [ngClass]="sameCardCheck === false? 'blue' : 'red'"
  
-> the same hero card was clicked sameCardCheck IS TRUE</h1> 
+> the same hero card was clicked sameCardCheck IS TRUE</h1>  -->
 <div  #toggleDiv 
+ 
 [class]="classToggle"
 [ngClass]="sameCardCheck === false? '' : 'hidden'"
 >
