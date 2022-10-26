@@ -9,5 +9,5 @@ export const HeroesList: Hero[] = [
   { id: 4, name: ' Optiko ', power: ' Light bending 🌈' },
   { id: 4, name: ' Archiey ', power: ' aim 🏹' },
   { id: 4, name: ' Dragoness ', power: ' shape shifter 🐉' },
-  { id: 4, name: ' Blasta ', power: ' tele kinetic explosion 💥' },
+  { id: 4, name: ' BlastaBeta ', power: ' tele kinetic explosion 💥' },
 ];
